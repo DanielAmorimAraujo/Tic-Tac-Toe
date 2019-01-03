@@ -6,14 +6,14 @@ import java.awt.event.*; //imports classes needed for ItemListener, ActionListen
  */
 public class TicTacEvent implements ItemListener, ActionListener, Runnable {
     TicTac gui; //associates the gameboard with the event so that the gameboard components (e.g. JButtons) can be accessed
-    ImageIcon a = new ImageIcon("ICS4UE_U2A5A1_DanielAraujo - Tic-Tac-Toe (X Icon).png"); //declares ImageIcon variable a and stores the ICS4UE_U2A5A1_DanielAraujo - Tic-Tac-Toe (X Icon).png icon - image address: https://image.flaticon.com/icons/png/128/75/75519.png
-    ImageIcon b = new ImageIcon("ICS4UE_U2A5A1_DanielAraujo - Tic-Tac-Toe (O Icon).png"); //declares ImageIcon variable b and stores the ICS4UE_U2A5A1_DanielAraujo - Tic-Tac-Toe (O Icon).png icon - image address: http://www.i2clipart.com/cliparts/a/d/a/e/128045adaec2334c9b935218efbe25ea2cd32d.png
+    ImageIcon a = new javax.swing.ImageIcon(getClass().getResource("/imageresources/X Icon.png")); //declares ImageIcon variable a and stores the X Icon.png icon - image address: https://image.flaticon.com/icons/png/128/75/75519.png
+    ImageIcon b = new javax.swing.ImageIcon(getClass().getResource("/imageresources/O Icon.png")); //declares ImageIcon variable b and stores the O Icon.png icon - image address: http://www.i2clipart.com/cliparts/a/d/a/e/128045adaec2334c9b935218efbe25ea2cd32d.png
     int intClicks = 0; //declares integer variable intClicks and sets it equal to 0 - counts how many JButtons have been selected in a single game
     boolean blnWin = false; //declares boolean variable blnWin and sets it as false - used to determine whether a player one or not
     int[][] intCheck = new int[3][3]; //declares 2-d integer array that's 3 by 3 to store values corresponding to Xs, Os, or blanks from the game board
     int[] intRowSum = new int[3]; //declares integer array that stores the sum of the rows of the intCheck array
     int[] intColSum = new int[3]; //declares integer array that stores the sum of the columns of the intCheck array
-    
+   
     int intX = 0, intO = 0, intTie = 0; //declares integer variables intX, intO, and intTie and sets them all equal to 0 - stores the number of times X wins, times O wins, and ties, respectively
     boolean blnStarted = false; //declares boolean variable blnStarted and sets it as false - stores whether the game has started or not
     boolean blnFinished = false; //declares boolean variable blnFinished and sets it as false - stores whether the game has finished or not (before it has been reseted)
@@ -188,7 +188,7 @@ public class TicTacEvent implements ItemListener, ActionListener, Runnable {
     void output() {
         blnStarted = false; //sets the blnStarted variable as false so the program knows the game has not been started again - ensures user selects the Play (btnPlay) button before playing
         blnFinished = true; //sets the blnFinished variable as true so the program knows the game has ended - ensures the user selects the Reset (btnReset) button to reset the game
-        gui.txtBlank1.setText(" X wins: " + intX + "         O wins: " + intO); //outputs the text to the txtBlank1 text field with Xs and Os score (intX and intO, respectively)
+        gui.txtBlank1.setText(" X wins: " + intX + "\n O wins: " + intO); //outputs the text to the txtBlank1 text field with Xs and Os score (intX and intO, respectively)
         gui.txtBlank2.setText(" Ties: " + intTie); //outputs the text to the txtBlank2 text field with the number of ties (intTie)
     }
 
